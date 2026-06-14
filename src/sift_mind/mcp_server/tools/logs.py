@@ -40,7 +40,7 @@ class LogToolWrapper(ToolWrapper):
             command=command,
             parser=lambda raw: parse_evtx(raw, event_ids),
             confidence=0.85,
-            executable_candidates=["evtx_dump"],
+            executable_candidates=["evtx_dump.py", "evtx_dump"],
         )
 
     def get_security_events(self, log_path: str, username: str = "", time_start: str = "", time_end: str = "") -> MCPResponse:

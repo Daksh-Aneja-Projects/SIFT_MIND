@@ -11,7 +11,10 @@ try:
     print("Executing real analysis pipeline (sift-smoke)...")
     cmd = '''
     cd /home/sansforensics/sift-mind/project
-    export PATH="$HOME/.local/bin:$PATH"
+    wget -qO /tmp/evtx_dump https://github.com/omerbenamram/evtx/releases/download/v0.8.3/evtx_dump-v0.8.3-x86_64-unknown-linux-gnu
+    chmod +x /tmp/evtx_dump
+    sudo cp /tmp/evtx_dump /usr/local/bin/evtx_dump
+    sed -i 's/command = \\["evtx_dump.py", log_path\\]/command = \\["evtx_dump", log_path\\]/' src/sift_mind/mcp_server/tools/logs.py
     export PYTHONPATH="src"
     python3 -m sift_mind.run sift-smoke --mode sift --case-root /mnt/case/real_evidence --manifest /mnt/case/real_evidence/real_manifest.json > /home/sansforensics/sift_run.log 2>&1
     cat /home/sansforensics/sift_run.log

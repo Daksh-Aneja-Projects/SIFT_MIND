@@ -72,7 +72,7 @@ class ToolWrapper:
         command: list[str],
         parser,
         confidence: float,
-        timeout: int = 300,
+        timeout: int = 3600,
         output_paths: list[str | Path] | None = None,
         executable_candidates: list[str] | None = None,
     ) -> MCPResponse:
