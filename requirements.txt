@@ -1,0 +1,37 @@
+# requirements.txt
+
+# Runtime package metadata lives in pyproject.toml.
+
+# MCP Framework
+mcp>=1.0.0
+fastmcp>=0.5.0
+
+# Data validation
+pydantic>=2.0.0
+
+# Graph (contradiction detection)
+networkx>=3.2
+
+# Database (epistemic ledger)
+# sqlite3 is built-in
+
+# Template engine (report generation)
+jinja2>=3.1.0
+
+# Terminal UI (live narrative display)
+rich>=13.0.0
+
+# CLI
+click>=8.0.0
+
+# Forensics tools (Python wrappers for SIFT tools)
+python-evtx>=0.8.0
+yara-python>=4.3.0
+pyewf>=20231119        # EWF/E01 image support
+
+# Utilities
+python-dateutil>=2.8.0
+
+# Testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0

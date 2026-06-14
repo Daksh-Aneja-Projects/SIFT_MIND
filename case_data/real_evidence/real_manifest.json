@@ -1,0 +1,19 @@
+{
+  "case_id": "real-mimikatz-evtx",
+  "description": "Real data execution using a public Mimikatz EVTX sample.",
+  "artifacts": {
+    "case_path": ".",
+    "security_evtx": "Security.evtx"
+  },
+  "options": {
+    "exe_name": "mimikatz.exe",
+    "event_ids": [4624, 4625, 4648, 4688, 4698, 7045],
+    "ruleset": "default"
+  },
+  "tools": [
+    "parse_evtx"
+  ],
+  "required_tools": [
+    "parse_evtx"
+  ]
+}

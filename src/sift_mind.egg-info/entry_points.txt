@@ -1,0 +1,2 @@
+[console_scripts]
+sift-mind = sift_mind.run:main

@@ -1,0 +1,49 @@
+{
+  "case_id": "public-sample-placeholder",
+  "description": "Edit paths after mounting a public case read-only at CASE_ROOT. Paths may be relative to CASE_ROOT.",
+  "artifacts": {
+    "case_path": ".",
+    "prefetch_dir": "Windows/Prefetch",
+    "amcache": "Windows/AppCompat/Programs/Amcache.hve",
+    "mft": "$MFT",
+    "registry_root": "Windows/System32/config",
+    "registry_hive": "Windows/System32/config/SYSTEM",
+    "usnjrnl": "$Extend/$UsnJrnl:$J",
+    "memory": "memory.raw",
+    "security_evtx": "Windows/System32/winevt/Logs/Security.evtx",
+    "pcap": "network.pcap"
+  },
+  "options": {
+    "exe_name": "mimikatz.exe",
+    "hive": "SYSTEM",
+    "registry_key": "ControlSet001\\Services",
+    "username": "",
+    "event_ids": [4624, 4625, 4648, 4688, 4698, 7045],
+    "timestamp": "2026-06-10T03:17:00Z",
+    "window_minutes": 5,
+    "ruleset": "default"
+  },
+  "tools": [
+    "analyze_prefetch",
+    "get_amcache",
+    "parse_mft",
+    "get_registry_key",
+    "get_usnjrnl_entries",
+    "list_processes",
+    "get_network_connections",
+    "get_handles",
+    "scan_memory_yara",
+    "parse_evtx",
+    "get_process_creation_events",
+    "build_super_timeline",
+    "parse_pcap_summary",
+    "extract_dns_queries",
+    "get_http_requests"
+  ],
+  "required_tools": [
+    "analyze_prefetch",
+    "parse_mft",
+    "list_processes",
+    "parse_evtx"
+  ]
+}

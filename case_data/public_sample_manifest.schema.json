@@ -1,0 +1,118 @@
+{
+  "$id": "https://sift-mind.local/schema/public-sample-manifest.schema.json",
+  "additionalProperties": false,
+  "description": "Manifest for selecting typed SIFT-MIND forensic wrappers and case artifacts. Artifact paths may be absolute paths under CASE_ROOT or paths relative to CASE_ROOT.",
+  "properties": {
+    "artifacts": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Artifact path map. Common keys include: amcache, case_path, evtx, lnk_dir, lnk_files, memory, memory_image, mft, pcap, prefetch, prefetch_dir, registry_dir, registry_hive, registry_root, security_evtx, shellbags, system_hive, usnjrnl, usrclass.",
+      "title": "Artifacts",
+      "type": "object"
+    },
+    "case_id": {
+      "default": "unnamed-case",
+      "title": "Case Id",
+      "type": "string"
+    },
+    "description": {
+      "default": "",
+      "title": "Description",
+      "type": "string"
+    },
+    "options": {
+      "additionalProperties": true,
+      "description": "Optional wrapper arguments such as exe_name, hive, registry_key, username, event_ids, timestamp, window_minutes, ruleset, and timeline_sources.",
+      "title": "Options",
+      "type": "object"
+    },
+    "required_tools": {
+      "items": {
+        "enum": [
+          "analyze_prefetch",
+          "build_super_timeline",
+          "extract_dns_queries",
+          "extract_injected_code",
+          "extract_shellbags",
+          "find_hidden_modules",
+          "get_amcache",
+          "get_artifact_at_time",
+          "get_handles",
+          "get_http_requests",
+          "get_logon_events",
+          "get_network_connections",
+          "get_process_creation_events",
+          "get_registry_key",
+          "get_security_events",
+          "get_usnjrnl_entries",
+          "list_processes",
+          "list_registry_hives",
+          "parse_evtx",
+          "parse_lnk_files",
+          "parse_mft",
+          "parse_pcap_summary",
+          "scan_memory_yara"
+        ],
+        "type": "string"
+      },
+      "title": "Required Tools",
+      "type": "array"
+    },
+    "tools": {
+      "items": {
+        "enum": [
+          "analyze_prefetch",
+          "build_super_timeline",
+          "extract_dns_queries",
+          "extract_injected_code",
+          "extract_shellbags",
+          "find_hidden_modules",
+          "get_amcache",
+          "get_artifact_at_time",
+          "get_handles",
+          "get_http_requests",
+          "get_logon_events",
+          "get_network_connections",
+          "get_process_creation_events",
+          "get_registry_key",
+          "get_security_events",
+          "get_usnjrnl_entries",
+          "list_processes",
+          "list_registry_hives",
+          "parse_evtx",
+          "parse_lnk_files",
+          "parse_mft",
+          "parse_pcap_summary",
+          "scan_memory_yara"
+        ],
+        "type": "string"
+      },
+      "title": "Tools",
+      "type": "array"
+    }
+  },
+  "title": "SIFT-MIND Public Sample Smoke Manifest",
+  "type": "object",
+  "x-supported_artifact_keys": [
+    "amcache",
+    "case_path",
+    "evtx",
+    "lnk_dir",
+    "lnk_files",
+    "memory",
+    "memory_image",
+    "mft",
+    "pcap",
+    "prefetch",
+    "prefetch_dir",
+    "registry_dir",
+    "registry_hive",
+    "registry_root",
+    "security_evtx",
+    "shellbags",
+    "system_hive",
+    "usnjrnl",
+    "usrclass"
+  ]
+}

@@ -1,0 +1,31 @@
+flowchart LR
+    analyst["Analyst / MCP-compatible Agent"]
+    prompts["Four-phase prompts: reconnaissance, triage, deep analysis, reporting"]
+    mcp["SIFT-MIND FastMCP security boundary"]
+    tools["Typed SIFT wrappers: disk, memory, logs, timeline, network"]
+    hash["Pre-parse evidence hashing and linked evidence_chain.log"]
+    parsers["Structured bounded parsers"]
+    ledger["SQLite WAL Epistemic Ledger"]
+    graph["Contradiction Detection Graph"]
+    reports["Ledger-only Report Writer"]
+    package["Submission package and production audit"]
+    ollama["Local Ollama bounded JSON model"]
+    cloud["Future OpenAI-compatible cloud provider"]
+    case_root["Read-only CASE_ROOT evidence mount"]
+    output["Managed OUTPUT_DIR outside evidence mount"]
+
+    analyst --> prompts
+    prompts --> mcp
+    mcp --> tools
+    tools --> case_root
+    tools --> hash
+    hash --> output
+    hash --> parsers
+    parsers --> ledger
+    ledger --> graph
+    graph -->|"BLOCKED until resolved"| ledger
+    ledger --> reports
+    reports --> package
+    mcp --> ollama
+    mcp -.same JSON contract.-> cloud
+    tools --> output

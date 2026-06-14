@@ -1,0 +1,34 @@
+{
+  "case_id": "sift-mind-fixture",
+  "source": "deterministic fixture ground truth",
+  "expected_findings": [
+    {
+      "id": "mimikatz_execution",
+      "must_include": ["MIMIKATZ.EXE", "executed"],
+      "status": "CONFIRMED",
+      "mitre": "T1003.001"
+    },
+    {
+      "id": "systemupdate_persistence",
+      "must_include": ["SystemUpdate", "Persistence"],
+      "status": "CONFIRMED",
+      "mitre": "T1053"
+    },
+    {
+      "id": "external_contact",
+      "must_include": ["185.199.108.153", "credential-access window"],
+      "status": "INFERRED",
+      "mitre": "T1071.001"
+    }
+  ],
+  "expected_iocs": [
+    {
+      "type": "file_name",
+      "value": "MIMIKATZ.EXE"
+    },
+    {
+      "type": "ip",
+      "value": "185.199.108.153"
+    }
+  ]
+}
